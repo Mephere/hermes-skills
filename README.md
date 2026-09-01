@@ -13,29 +13,29 @@ systeme.
 Ouvrir PowerShell, pas l'invite de commandes classique.
 
 ```powershell
-mkdir -Force "$HOME\.claude\skills" | Out-Null; curl.exe -fsSL https://github.com/Mephere/hermes-skills/archive/refs/heads/main.tar.gz -o "$env:TEMP\hs.tgz"; tar -xzf "$env:TEMP\hs.tgz" -C "$HOME\.claude\skills" --strip-components=2 hermes-skills-main/skills/rediger-un-email-professionnel-clair-et-court
+mkdir -Force "$HOME\.hermes\skills" | Out-Null; curl.exe -fsSL https://github.com/Mephere/hermes-skills/archive/refs/heads/main.tar.gz -o "$env:TEMP\hs.tgz"; tar -xzf "$env:TEMP\hs.tgz" -C "$HOME\.hermes\skills" --strip-components=2 hermes-skills-main/skills/rediger-un-email-professionnel-clair-et-court
 ```
 
 ### Mac et Linux
 
 ```bash
-mkdir -p ~/.claude/skills && curl -fsSL https://github.com/Mephere/hermes-skills/archive/refs/heads/main.tar.gz | tar -xz --strip-components=2 -C ~/.claude/skills hermes-skills-main/skills/rediger-un-email-professionnel-clair-et-court
+mkdir -p ~/.hermes/skills && curl -fsSL https://github.com/Mephere/hermes-skills/archive/refs/heads/main.tar.gz | tar -xz --strip-components=2 -C ~/.hermes/skills hermes-skills-main/skills/rediger-un-email-professionnel-clair-et-court
 ```
 
-Le skill est alors disponible dans `~/.claude/skills/rediger-un-email-professionnel-clair-et-court/`.
+Le skill est alors disponible dans `~/.hermes/skills/rediger-un-email-professionnel-clair-et-court/`.
 
 ## Installer toute la bibliotheque
 
 ### Windows (PowerShell)
 
 ```powershell
-mkdir -Force "$HOME\.claude\skills" | Out-Null; curl.exe -fsSL https://github.com/Mephere/hermes-skills/archive/refs/heads/main.tar.gz -o "$env:TEMP\hs.tgz"; tar -xzf "$env:TEMP\hs.tgz" -C "$HOME\.claude\skills" --strip-components=2 hermes-skills-main/skills
+mkdir -Force "$HOME\.hermes\skills" | Out-Null; curl.exe -fsSL https://github.com/Mephere/hermes-skills/archive/refs/heads/main.tar.gz -o "$env:TEMP\hs.tgz"; tar -xzf "$env:TEMP\hs.tgz" -C "$HOME\.hermes\skills" --strip-components=2 hermes-skills-main/skills
 ```
 
 ### Mac et Linux
 
 ```bash
-mkdir -p ~/.claude/skills && curl -fsSL https://github.com/Mephere/hermes-skills/archive/refs/heads/main.tar.gz | tar -xz --strip-components=2 -C ~/.claude/skills hermes-skills-main/skills
+mkdir -p ~/.hermes/skills && curl -fsSL https://github.com/Mephere/hermes-skills/archive/refs/heads/main.tar.gz | tar -xz --strip-components=2 -C ~/.hermes/skills hermes-skills-main/skills
 ```
 
 ## Verifier l'installation
@@ -43,13 +43,13 @@ mkdir -p ~/.claude/skills && curl -fsSL https://github.com/Mephere/hermes-skills
 ### Windows (PowerShell)
 
 ```powershell
-ls -Recurse "$HOME\.claude\skills\rediger-un-email-professionnel-clair-et-court"
+ls -Recurse "$HOME\.hermes\skills\rediger-un-email-professionnel-clair-et-court"
 ```
 
 ### Mac et Linux
 
 ```bash
-ls -R ~/.claude/skills/rediger-un-email-professionnel-clair-et-court
+ls -R ~/.hermes/skills/rediger-un-email-professionnel-clair-et-court
 ```
 
 Le dossier doit contenir `SKILL.md` et un dossier `assets/` avec `modele-email.md`
@@ -60,20 +60,22 @@ et `formules-a-supprimer.md`.
 ### Windows (PowerShell)
 
 ```powershell
-Remove-Item -Recurse -Force "$HOME\.claude\skills\rediger-un-email-professionnel-clair-et-court"
+Remove-Item -Recurse -Force "$HOME\.hermes\skills\rediger-un-email-professionnel-clair-et-court"
 ```
 
 ### Mac et Linux
 
 ```bash
-rm -rf ~/.claude/skills/rediger-un-email-professionnel-clair-et-court
+rm -rf ~/.hermes/skills/rediger-un-email-professionnel-clair-et-court
 ```
 
 ## Repertoire d'installation
 
-`~/.claude/skills/` sur Mac et Linux, `%USERPROFILE%\.claude\skills\` sur Windows,
-est le chemin par defaut. Adapter la commande si Hermes lit ses skills ailleurs :
-remplacer le chemin dans la commande.
+`~/.hermes/skills/` sur Mac et Linux, `%USERPROFILE%\.hermes\skills\` sur Windows.
+C'est le dossier ou Hermes va chercher ses skills au demarrage. Si votre installation
+lit les skills ailleurs, remplacer ce chemin dans la commande.
+
+Apres l'installation, redemarrer Hermes pour qu'il relise ses skills.
 
 ## En cas d'erreur
 
